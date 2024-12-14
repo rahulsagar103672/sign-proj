@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      body { background-color: #eef2f3; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: 'Poppins', sans-serif; }
+      .background { position: absolute; top: 50%; left: 50%; width: 600px; height: 400px; background: linear-gradient(135deg, #1845ad, #23a2f6); border-radius: 20px; transform: translate(-50%, -50%); box-shadow: 0 4px 20px rgba(0,0,0,0.2); opacity: 0.95; }
+      form { width: 300px; background: #ffffff; padding: 40px 30px; border-radius: 8px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease; }
+      form h3 { text-align: center; font-size: 2rem; color: #333; }
+      label { display: block; margin-top: 20px; font-size: 1rem; color: #333; }
+      input { width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #ddd; transition: box-shadow 0.3s; }
+      input:focus { box-shadow: 0 0 8px rgba(24, 69, 173, 0.4); }
+      button { margin-top: 30px; width: 100%; padding: 12px; font-size: 1.1rem; font-weight: 600; border-radius: 5px; background-color: #1845ad; color: #fff; transition: background-color 0.3s, transform 0.3s; }
+      button:hover { background-color: #143a87; transform: scale(1.02); }
+      a { display: block; text-align: center; margin-top: 20px; color: #1845ad; font-weight: 500; transition: color 0.3s; }
+      a:hover { color: #143a87; }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <form method="post">
+        <h3>Login Here</h3>
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username" id="username" name="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="pass">
+
+        <button type="submit">Log In</button>
+        <a href="{% url 'signup' %}">Create an account</a>
+    </form>
+</body>
+</html>

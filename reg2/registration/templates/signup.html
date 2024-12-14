@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      body { background-color: #eef2f3; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: 'Poppins', sans-serif; }
+      .background { position: absolute; top: 50%; left: 50%; width: 600px; height: 500px; background: linear-gradient(135deg, #1845ad, #23a2f6); border-radius: 20px; transform: translate(-50%, -50%); box-shadow: 0 4px 20px rgba(0,0,0,0.2); opacity: 0.95; }
+      form { width: 300px; background: #ffffff; padding: 40px 30px; border-radius: 8px; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease; }
+      form h3 { text-align: center; font-size: 2rem; color: #333; }
+      label { display: block; margin-top: 20px; font-size: 1rem; color: #333; }
+      input { width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #ddd; transition: box-shadow 0.3s; }
+      input:focus { box-shadow: 0 0 8px rgba(24, 69, 173, 0.4); }
+      button { margin-top: 20px; width: 100%; padding: 12px; font-size: 1.1rem; font-weight: 600; border-radius: 5px; background-color: #1845ad; color: #fff; transition: background-color 0.3s, transform 0.3s; }
+      button:hover { background-color: #143a87; transform: scale(1.02); }
+      a { display: block; text-align: center; margin-top: 20px; color: #1845ad; font-weight: 500; transition: color 0.3s; }
+      a:hover { color: #143a87; }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <form method="post">
+        {% csrf_token %}
+        <h3>Signup Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" name="username" id="username">
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" name="email" id="email">
+
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" name="password1" id="password1">
+
+        <label for="password2">Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" name="password2" id="password2">
+
+        <button type="submit">Sign Up</button>
+        <a href="{% url 'login' %}">Already have an account?</a>
+    </form>
+</body>
+</html>
